@@ -1,5 +1,23 @@
-"scripts": {
+{
+  "name": "workspace-1",
+  "version": "1.0.0",
+  "description": "e2e tests for a server with build and start steps",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "build": "echo building ... server ... done!",
+    "start": "serve public"
   "test:chrome": "cypress run --browser chrome"
   "report:merge": "mochawesome-merge cypress/results/json/*.json > index.json"
   "report:generate": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "devDependencies": {
+    "cypress": "10.0.0"
+  },
+  "dependencies": {
+    "serve": "11.3.0"
+  }
 }
