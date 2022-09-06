@@ -1,28 +1,22 @@
-# This is a basic workflow to help you get started with Actions
-name: cypressTest
+name: Cypress Tests
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: ['master']
 
 jobs:
-  cypress-run:
+  cypress-test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install dependencies 📦
-        run: npm ci --legacy-peer-deps
-      - name: Show Cypress information ℹ️
-        run: npx cypress info
-      - name: Verify Cypress can run 🏃‍♂️
-        run: npx cypress verify
+
+      # package-lock.json && package.json file 동기화
+      - name: Install
+        run: rm -f package-lock.json && npm install
+
+      # and run all Cypress tests
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         with:
-          build: npm run build
           start: npm start
