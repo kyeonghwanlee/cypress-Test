@@ -1,0 +1,25 @@
+# This is a basic workflow to help you get started with Actions
+name: cypressTest
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-18.04
+    name: check tests
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: testomatio/check-tests@stable
+      with:
+        framework: cypress
+        tests: "./cypress/integration/**/**.spec.js"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        has-tests-label: true
