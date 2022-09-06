@@ -1,49 +1,58 @@
-name: 'UI Tests'
-
-on: push
-
+name: main
+on:
+  push:
+    branches:    
+      - 'master'
+  pull_request:
 jobs:
-  # Run interaction and accessibility tests
-  interaction-and-accessibility:
-    runs-on: ubuntu-latest
+  build-and-test:
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        node: [12, 14, 16]
+    name: Test on Node v${{ matrix.node }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
         with:
-          node-version: '14.x'
-      - name: Install dependencies
-        run: yarn
-      - name: Install Playwright
-        run: npx playwright install --with-deps
-      - name: Build Storybook
-        run: yarn build-storybook --quiet
-      - name: Serve Storybook and run tests
-        run: |
-          npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
-            "npx http-server storybook-static --port 6006 --silent" \
-            "npx wait-on tcp:6006 && yarn test-storybook"
-  # Run visual and composition tests with Chromatic
-  visual-and-composition:
-    runs-on: ubuntu-latest
+          node-version: ${{ matrix.node }}
+      - uses: bahmutov/npm-install@v1
+      - run: npm run format
+      - run: npm run build
+      - run: npm test
+      - run: npm run check:markdown
+
+
+  release:
+    runs-on: ubuntu-20.04
+    name: release
+    needs: [build-and-test]
+    # only release from the master branch
+    if: github.ref == 'refs/heads/master'
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: bahmutov/npm-install@v1
+      # https://github.com/cycjimmy/semantic-release-action
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        id: semantic
         with:
-          fetch-depth: 0 # Required to retrieve git history
-      - name: Install dependencies
-        run: yarn
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
-        with:
-          # Grab this from the Chromatic manage page
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-  # Run user flow tests with Cypress
-  user-flow:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: yarn
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-        with:
-          start: npm start
+          branch: master
+          extra_plugins: |
+            @semantic-release/git
+            @semantic-release/changelog
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Push updates to branch for major version
+        # if there is a new version published, let's say v1.2.3
+        # then this step will update branch "v1" to this commit
+        # https://github.com/cypress-io/github-action/branches
+        if: steps.semantic.outputs.new_release_published == 'true'
+        run: 'git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD:refs/heads/v${{steps.semantic.outputs.new_release_major_version}}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
