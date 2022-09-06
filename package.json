@@ -1,4 +1,5 @@
 "scripts": {
   "test:chrome": "cypress run --browser chrome"
   "report:merge": "mochawesome-merge cypress/results/json/*.json > index.json"
+  "report:generate": "marge index.json --reportDir public --assetsDir public/assets --reportPageTitle index.html"}
 }
