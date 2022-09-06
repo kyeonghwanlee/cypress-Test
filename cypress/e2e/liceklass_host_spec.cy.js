@@ -268,7 +268,7 @@ describe('empty spec', () => {
     cy.get('[class="el-select-dropdown__item"]').eq(9).click()
   })
 
-  it.only('클래스 변경 후 확인 테스트',() => {
+  it('클래스 변경 후 확인 테스트',() => {
     cy.viewport(1920,1080)
     cy.visit('https://sso.liveklass.com/login?query=%7B%22next%22%3A%22%252F%22%7D')
 
@@ -322,7 +322,7 @@ describe('empty spec', () => {
     cy.contains('프로모션').should('exist')
   })
 
-  it.only('기존작업 원복',() => {
+  it('기존작업 원복',() => {
     cy.viewport(1920,1080)
     cy.visit('https://sso.liveklass.com/login?query=%7B%22next%22%3A%22%252F%22%7D')
 
