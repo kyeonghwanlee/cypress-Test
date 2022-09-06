@@ -163,7 +163,7 @@ describe('empty spec', () => {
     //cy.get('[class="btn_common btn_gray btn_medium"]').click()
     
   })
-  it.only('4-2. site service (구독 나머지)', () => {
+  it('4-2. site service (구독 나머지)', () => {
     cy.get('[class="lk-btn text icon header-menu-icon profile show"]').click()
     cy.wait(500)
 
