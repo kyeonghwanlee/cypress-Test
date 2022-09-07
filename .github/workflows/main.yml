@@ -1,26 +1,17 @@
-name: example-start-and-yarn-workspaces
-on:
-  push:
-    branches:
-      - 'master'
-  pull_request:
+name: Cypress Tests
+
+on: [push]
+
 jobs:
-
-  # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Cypress v9 and lower ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ #
-
-  single:
-    # the example has Yarn workspace in its "root" folder
-    # examples/start-and-yarn-workspaces
-    # and tests in a subfolder like "workspace-1"
-    runs-on: ubuntu-20.04
+  cypress-run:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-
-      - name: Tests
-        uses: ./
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v4
         with:
-          working-directory: examples/v9/start-and-yarn-workspaces/workspace-1
-          build: yarn run build
-          start: yarn start
-          wait-on: 'http://localhost:5000'
+          build: npm run build
+          start: npm start
