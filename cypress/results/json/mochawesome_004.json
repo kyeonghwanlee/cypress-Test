@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-09-13T23:58:44.054Z",
+    "end": "2022-09-13T23:59:02.596Z",
+    "duration": 18542,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "88c94d27-1a82-439f-a81f-f6c5fbf609d6",
+      "title": "",
+      "fullFile": "cypress/e2e/2_createaccount.cy.js",
+      "file": "cypress/e2e/2_createaccount.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5ec2c65c-8976-451e-b112-2899395ccbd2",
+          "title": "empty spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "2-1. createaccount failse (error email)",
+              "fullTitle": "empty spec 2-1. createaccount failse (error email)",
+              "timedOut": null,
+              "duration": 7171,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// email text input false\ncy.get('.error-message').should('not.exist');\ncy.get('#id').type('admin');\ncy.get('.lk-button').click();\ncy.get('.error-message').should('exist');",
+              "err": {},
+              "uuid": "9d610a13-3b7f-4b36-88e1-49965c48ecdc",
+              "parentUUID": "5ec2c65c-8976-451e-b112-2899395ccbd2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2-2. createaccount failse(no password)",
+              "fullTitle": "empty spec 2-2. createaccount failse(no password)",
+              "timedOut": null,
+              "duration": 3001,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// email text input false\ncy.get('.error-message').should('not.exist');\ncy.contains('약관에 동의하셔야 합니다.').should('not.exist');\ncy.get('#id').type('ruoghks@gmail.com');\ncy.get(':nth-child(5) > .lk-input > .lk-input-inner > input').type('admin');\ncy.get(':nth-child(4) > .lk-input > .lk-input-inner > input').type('admin');\ncy.get('.lk-button').click();\ncy.get('.error-message').should('exist');",
+              "err": {},
+              "uuid": "4ac272c1-0201-49d7-adda-ba26df854f36",
+              "parentUUID": "5ec2c65c-8976-451e-b112-2899395ccbd2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2-3. createaccount failse(no email & password)",
+              "fullTitle": "empty spec 2-3. createaccount failse(no email & password)",
+              "timedOut": null,
+              "duration": 1992,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// email text input false\ncy.get('.error-message').should('not.exist');\ncy.get('.lk-button').click();\ncy.get('.error-message').should('exist');",
+              "err": {},
+              "uuid": "1aa59bed-e6ca-4394-84c6-0ed3696e2c64",
+              "parentUUID": "5ec2c65c-8976-451e-b112-2899395ccbd2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2-4. createaccount failse(no checkbox)",
+              "fullTitle": "empty spec 2-4. createaccount failse(no checkbox)",
+              "timedOut": null,
+              "duration": 3117,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// email text input false\ncy.get('.error-message').should('not.exist');\ncy.get('#id').type('ruoghks@gmail.com');\ncy.get(':nth-child(5) > .lk-input > .lk-input-inner > input').type('@dl29240730');\ncy.get(':nth-child(4) > .lk-input > .lk-input-inner > input').type('이경환');\ncy.get('[for=\"check_01\"]').click();\ncy.get('.lk-button').click();\ncy.get('.error-message').should('exist');",
+              "err": {},
+              "uuid": "693eeec5-30dd-451b-b63f-ab3496b1b9a1",
+              "parentUUID": "5ec2c65c-8976-451e-b112-2899395ccbd2",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "2-5. createaccount failse(no checkbox)",
+              "fullTitle": "empty spec 2-5. createaccount failse(no checkbox)",
+              "timedOut": null,
+              "duration": 2468,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#id').type('ruoghks@gmail.com');\ncy.get(':nth-child(5) > .lk-input > .lk-input-inner > input').type('@dl29240730');\ncy.get(':nth-child(4) > .lk-input > .lk-input-inner > input').type('이경환');\ncy.get('[style=\"margin-top: 14px;\"] > .lk-checkbox > .checkmark').click();\ncy.get('[style=\"margin-top: 19px;\"] > .lk-checkbox > .checkmark').click();\ncy.get('.lk-button').click();",
+              "err": {},
+              "uuid": "ed9abce7-369e-45f3-9b09-b4704b55e123",
+              "parentUUID": "5ec2c65c-8976-451e-b112-2899395ccbd2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9d610a13-3b7f-4b36-88e1-49965c48ecdc",
+            "4ac272c1-0201-49d7-adda-ba26df854f36",
+            "1aa59bed-e6ca-4394-84c6-0ed3696e2c64",
+            "693eeec5-30dd-451b-b63f-ab3496b1b9a1",
+            "ed9abce7-369e-45f3-9b09-b4704b55e123"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 17749,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

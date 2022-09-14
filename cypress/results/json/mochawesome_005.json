@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-09-13T23:58:43.279Z",
+    "end": "2022-09-13T23:59:31.352Z",
+    "duration": 48073,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f3cf411f-8f2d-4af3-807c-3c80716fba5f",
+      "title": "",
+      "fullFile": "cypress/e2e/3_mypage_editinformation.cy.js",
+      "file": "cypress/e2e/3_mypage_editinformation.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "869a60b8-eada-4013-b396-97d2018f7a6d",
+          "title": "empty spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "3. mypage page check",
+              "fullTitle": "empty spec 3. mypage page check",
+              "timedOut": null,
+              "duration": 12843,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//button check\ncy.contains('운영 가이드').should('exist');\ncy.contains('수강생 가이드').should('exist');\ncy.contains('라클아카데미').should('exist'); // user stting button check\ncy.get('.ki-user').click();\ncy.wait(1000);\ncy.contains('마이페이지로 이동').should('exist');\ncy.contains('내 정보 수정').should('exist');\ncy.contains('신청 내역').should('exist');\ncy.contains('로그아웃').should('exist');\ncy.get(':nth-child(3) > [href=\"/editinformation\"]').click();\ncy.wait(1000);\ncy.url().should('include', '/editinformation');\ncy.url().then(valse => {\n  cy.log('The current real URL id: ', valse);\n}); //button check\ncy.contains('내 정보 저장하기').should('exist');\ncy.contains('메일 인증').should('exist');\ncy.contains('비밀번호를 재설정').should('exist');\ncy.contains('내 정보 수정').should('exist');\ncy.contains('신청 내역').should('exist');\ncy.contains('운영 가이드').should('exist');\ncy.contains('수강생 가이드').should('exist');\ncy.contains('라클아카데미').should('exist');",
+              "err": {},
+              "uuid": "f9d05dcd-f49e-4a02-890e-04c58908683d",
+              "parentUUID": "869a60b8-eada-4013-b396-97d2018f7a6d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3-1. editinformation page check",
+              "fullTitle": "empty spec 3-1. editinformation page check",
+              "timedOut": null,
+              "duration": 27476,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://sso.liveklass.com/editinformation'); //phone chage\ncy.get(':nth-child(6) > .content_td > .form_control').clear();\ncy.get(':nth-child(6) > .content_td > .form_control').type('01012345678');\ncy.contains('정보가 수정되었습니다').should('not.exist');\ncy.get('.button_container > .btn_common').click();\ncy.contains('정보가 수정되었습니다').should('exist');\ncy.get('.popup_b > .btn_common').click(); //password chage\ncy.contains('새 비밀번호를 입력해 주세요.').should('not.exist');\ncy.get(':nth-child(1) > .content_td > .form_control').type('12');\ncy.get('.button_container > .btn_common').click();\ncy.contains('새 비밀번호를 입력해 주세요.').should('exist');\ncy.wait(300);\ncy.get(':nth-child(1) > .content_td > .form_control').clear();\ncy.get(':nth-child(1) > .content_td > .form_control').type('@dl292407');\ncy.contains('비밀번호는 8자리 이상 입력해 주세요.').should('not.exist');\ncy.get(':nth-child(2) > .content_td > .form_control').type('@dsfjl');\ncy.contains('비밀번호는 8자리 이상 입력해 주세요.').should('exist');\ncy.wait(300);\ncy.contains('비밀번호가 일치하지 않습니다.').should('not.exist');\ncy.get(':nth-child(2) > .content_td > .form_control').clear();\ncy.get(':nth-child(2) > .content_td > .form_control').type('@dl29240730');\ncy.get(':nth-child(7) > :nth-child(3) > .content_td > .form_control').type('@dsfjl');\ncy.contains('비밀번호가 일치하지 않습니다.').should('exist');\ncy.wait(300);\ncy.get(':nth-child(7) > :nth-child(3) > .content_td > .form_control').clear();\ncy.get(':nth-child(7) > :nth-child(3) > .content_td > .form_control').type('@dl29240730');\ncy.contains('비밀번호를 확인해 주세요.').should('not.exist');\ncy.get('.button_container > .btn_common').click();\ncy.contains('비밀번호를 확인해 주세요.').should('exist');\ncy.get('.popup_b > .btn_common').click();\ncy.wait(300);\ncy.get(':nth-child(1) > .content_td > .form_control').clear();\ncy.get(':nth-child(1) > .content_td > .form_control').type('@dl29240730');\ncy.get(':nth-child(2) > .content_td > .form_control').click();\ncy.wait(300);\ncy.contains('문자 1개 이상').should('exist');\ncy.contains('숫자 1개 이상').should('exist');\ncy.contains('특수문자 1개 이상').should('exist');\ncy.contains('최소 8자 이상').should('exist');\ncy.wait(300);\ncy.contains('정보가 수정되었습니다').should('not.exist');\ncy.get('.button_container > .btn_common').click();\ncy.contains('정보가 수정되었습니다').should('exist');\ncy.get('.popup_b > .btn_common').click(); //paymenthistory\ncy.get('.settings_side_content > [href=\"/paymenthistory\"]').click();\ncy.wait(1000);\ncy.url().should('include', '/paymenthistory');\ncy.url().then(valse => {\n  cy.log('The current real URL id: ', valse);\n});\ncy.contains('내 정보 수정').should('exist');\ncy.contains('신청 내역').should('exist');\ncy.contains('운영 가이드').should('exist');\ncy.contains('수강생 가이드').should('exist');\ncy.contains('라클아카데미').should('exist'); // user stting cilck\ncy.get('.ki-user').click(); // logout\ncy.get(':nth-child(4) > .lhp-menu-item').click();",
+              "err": {},
+              "uuid": "61515ee7-8d61-42d3-9b9d-880e093a6a02",
+              "parentUUID": "869a60b8-eada-4013-b396-97d2018f7a6d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3-2. editinformation email check",
+              "fullTitle": "empty spec 3-2. editinformation email check",
+              "timedOut": null,
+              "duration": 6782,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://sso.liveklass.com/editinformation');\ncy.wait(200);\ncy.get('.content_td > div > .btn_common').click();\ncy.get('.mng-input-button').should('exist');\ncy.contains('계정 인증 완료').should('exist');\ncy.get('.mng-input-button').click();\ncy.get(':nth-child(3) > .lk-mng-input > input').type('324789');\ncy.contains('인증 코드가 잘못 되었습니다.').should('not.exist');\ncy.get('.lk-mng-modal-footer > .lk-mng-button').click();\ncy.contains('인증 코드가 잘못 되었습니다.').should('exist');\ncy.wait(200);\ncy.get('[class=\"btn_common btn_point btn_popup_small focusable\"]').click();\ncy.wait(200);\ncy.get('.lk-mng-modal-header > .lk-mng-icon > img').click();",
+              "err": {},
+              "uuid": "0bc9f591-3dec-4c36-aed8-6ef798e4eb30",
+              "parentUUID": "869a60b8-eada-4013-b396-97d2018f7a6d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f9d05dcd-f49e-4a02-890e-04c58908683d",
+            "61515ee7-8d61-42d3-9b9d-880e093a6a02",
+            "0bc9f591-3dec-4c36-aed8-6ef798e4eb30"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 47101,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

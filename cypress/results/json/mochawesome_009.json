@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-09-13T23:59:55.284Z",
+    "end": "2022-09-14T00:00:19.431Z",
+    "duration": 24147,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7aeabef8-577f-4037-a875-d955eb0e1ffa",
+      "title": "",
+      "fullFile": "cypress/e2e/5_class_insert.cy.js",
+      "file": "cypress/e2e/5_class_insert.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "526c6532-311d-43a4-b718-22202c4927fe",
+          "title": "empty spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "4-2. site service (구독 나머지)",
+              "fullTitle": "empty spec 4-2. site service (구독 나머지)",
+              "timedOut": null,
+              "duration": 23184,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[class=\"lk-btn text icon header-menu-icon profile show\"]').click();\ncy.wait(500); //서비스 구독 - 구독관리\ncy.contains('서비스 구독').click();\ncy.wait(500); //서비스 구독 - 구독내역\ncy.contains('구독내역').click(); //서비스 구독 - 결제정보\ncy.contains('결제정보').click();\ncy.contains('결제 카드 추가').should('exist');\ncy.contains('수정').should('exist');\ncy.contains('결제 카드 추가').click();\ncy.contains('취소').should('exist');\ncy.contains('저장').should('exist');\ncy.contains('취소').click();\ncy.wait(500);\ncy.get('[class=\"btn_common btn_dark btn_x_small\"]').click();\ncy.contains('저장').should('exist');\ncy.wait(500);\ncy.contains('올바른 이메일 주소를 입력해 주세요.').should('not.exist');\ncy.get('[type=\"email\"]').clear();\ncy.get('[type=\"email\"]').type('dsfasfs');\ncy.contains('저장').click();\ncy.contains('올바른 이메일 주소를 입력해 주세요.').should('exist');\ncy.wait(500);\ncy.get('[type=\"email\"]').clear();\ncy.contains('저장').click();\ncy.contains('올바른 이메일 주소를 입력해 주세요.').should('exist');\ncy.wait(500);\ncy.get('[type=\"email\"]').type('kyeonghwan.lee@liveklass.com');\ncy.contains('저장').click();\ncy.contains('이메일 정보가 수정되었습니다.').should('exist');\ncy.get('[class=\"btn_common btn_point btn_popup_small focusable\"]').click();\ncy.wait(500); //서비스 구독 - 할인쿠폰\ncy.contains('할인 쿠폰').click();\ncy.contains('쿠폰 추가').should('exist');\ncy.contains('쿠폰 추가').click();\ncy.wait(500);\ncy.contains('쿠폰 등록').should('exist');\ncy.contains('쿠폰 등록').click();\ncy.get('[class=\"btn_common btn_gray btn_small btn_point\"]').click();\ncy.contains('쿠폰코드를 입력해 주세요').should('exist');\ncy.get('[class=\"btn_common txt_hide btn_popup_close focusable\"]').click();\ncy.wait(500); //신청내역\ncy.contains('신청 내역').click();\ncy.wait(500); //매출관리\ncy.contains('매출 관리').click();\ncy.wait(300);\ncy.contains('오늘').should('exist');\ncy.contains('1주일').should('exist');\ncy.contains('1개월').should('exist');\ncy.contains('3개월').should('exist');\ncy.contains('검색하기').should('exist');\ncy.contains('엑셀다운').should('exist');\ncy.get('[class=\"table_item_w\"]').eq(1).click();\ncy.contains('확인').click();\ncy.contains('엑셀다운').click();\ncy.wait(300); //정산관리\ncy.contains('정산 관리').click();\ncy.wait(300);\ncy.contains('오늘').should('exist');\ncy.contains('1주일').should('exist');\ncy.contains('1개월').should('exist');\ncy.contains('3개월').should('exist');\ncy.contains('검색하기').should('exist');\ncy.contains('엑셀다운').should('exist');\ncy.get('[class=\"table_item_w\"]').eq(1).click();\ncy.get('[class=\"btn_common btn_point btn_medium\"]').click();\ncy.contains('엑셀다운').click();",
+              "err": {},
+              "uuid": "5912118e-e91d-40ce-9ffd-6002e22eea63",
+              "parentUUID": "526c6532-311d-43a4-b718-22202c4927fe",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5912118e-e91d-40ce-9ffd-6002e22eea63"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 23184,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

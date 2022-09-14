@@ -13,5 +13,6 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v4
         with:
-          build: npm run build
-          start: npm start
+          start: npm cypress run
+          report : npm run report:merge
+          report2 : npm run report:generate

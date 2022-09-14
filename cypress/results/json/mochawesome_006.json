@@ -1,0 +1,153 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 1,
+    "pending": 0,
+    "failures": 2,
+    "start": "2022-09-13T23:59:06.062Z",
+    "end": "2022-09-13T23:59:36.207Z",
+    "duration": 30145,
+    "testsRegistered": 3,
+    "passPercent": 33.33333333333333,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "59dd9355-eb65-4afc-b137-505531e8017c",
+      "title": "",
+      "fullFile": "cypress/e2e/3_mypage_editinformation.cy.js",
+      "file": "cypress/e2e/3_mypage_editinformation.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ac02350d-ea42-40b3-9035-c5c5eaedab16",
+          "title": "empty spec",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "3. mypage page check",
+              "fullTitle": "empty spec 3. mypage page check",
+              "timedOut": null,
+              "duration": 11016,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//button check\ncy.contains('운영 가이드').should('exist');\ncy.contains('수강생 가이드').should('exist');\ncy.contains('라클아카데미').should('exist'); // user stting button check\ncy.get('.ki-user').click();\ncy.wait(1000);\ncy.contains('마이페이지로 이동').should('exist');\ncy.contains('내 정보 수정').should('exist');\ncy.contains('신청 내역').should('exist');\ncy.contains('로그아웃').should('exist');\ncy.get(':nth-child(3) > [href=\"/editinformation\"]').click();\ncy.wait(1000);\ncy.url().should('include', '/editinformation');\ncy.url().then(valse => {\n  cy.log('The current real URL id: ', valse);\n}); //button check\ncy.contains('내 정보 저장하기').should('exist');\ncy.contains('메일 인증').should('exist');\ncy.contains('비밀번호를 재설정').should('exist');\ncy.contains('내 정보 수정').should('exist');\ncy.contains('신청 내역').should('exist');\ncy.contains('운영 가이드').should('exist');\ncy.contains('수강생 가이드').should('exist');\ncy.contains('라클아카데미').should('exist');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: '마이페이지로 이동' but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: '마이페이지로 이동' but never did.\n    at Context.eval (https://sso.liveklass.com/__cypress/tests?p=cypress/e2e/3_mypage_editinformation.cy.js:118:30)",
+                "diff": null
+              },
+              "uuid": "3d796a68-8633-4466-9752-d7d3126ac0f7",
+              "parentUUID": "ac02350d-ea42-40b3-9035-c5c5eaedab16",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3-1. editinformation page check",
+              "fullTitle": "empty spec 3-1. editinformation page check",
+              "timedOut": null,
+              "duration": 12378,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://sso.liveklass.com/editinformation'); //phone chage\ncy.get(':nth-child(6) > .content_td > .form_control').clear();\ncy.get(':nth-child(6) > .content_td > .form_control').type('01012345678');\ncy.contains('정보가 수정되었습니다').should('not.exist');\ncy.get('.button_container > .btn_common').click();\ncy.contains('정보가 수정되었습니다').should('exist');\ncy.get('.popup_b > .btn_common').click(); //password chage\ncy.contains('새 비밀번호를 입력해 주세요.').should('not.exist');\ncy.get(':nth-child(1) > .content_td > .form_control').type('12');\ncy.get('.button_container > .btn_common').click();\ncy.contains('새 비밀번호를 입력해 주세요.').should('exist');\ncy.wait(300);\ncy.get(':nth-child(1) > .content_td > .form_control').clear();\ncy.get(':nth-child(1) > .content_td > .form_control').type('@dl292407');\ncy.contains('비밀번호는 8자리 이상 입력해 주세요.').should('not.exist');\ncy.get(':nth-child(2) > .content_td > .form_control').type('@dsfjl');\ncy.contains('비밀번호는 8자리 이상 입력해 주세요.').should('exist');\ncy.wait(300);\ncy.contains('비밀번호가 일치하지 않습니다.').should('not.exist');\ncy.get(':nth-child(2) > .content_td > .form_control').clear();\ncy.get(':nth-child(2) > .content_td > .form_control').type('@dl29240730');\ncy.get(':nth-child(7) > :nth-child(3) > .content_td > .form_control').type('@dsfjl');\ncy.contains('비밀번호가 일치하지 않습니다.').should('exist');\ncy.wait(300);\ncy.get(':nth-child(7) > :nth-child(3) > .content_td > .form_control').clear();\ncy.get(':nth-child(7) > :nth-child(3) > .content_td > .form_control').type('@dl29240730');\ncy.contains('비밀번호를 확인해 주세요.').should('not.exist');\ncy.get('.button_container > .btn_common').click();\ncy.contains('비밀번호를 확인해 주세요.').should('exist');\ncy.get('.popup_b > .btn_common').click();\ncy.wait(300);\ncy.get(':nth-child(1) > .content_td > .form_control').clear();\ncy.get(':nth-child(1) > .content_td > .form_control').type('@dl29240730');\ncy.get(':nth-child(2) > .content_td > .form_control').click();\ncy.wait(300);\ncy.contains('문자 1개 이상').should('exist');\ncy.contains('숫자 1개 이상').should('exist');\ncy.contains('특수문자 1개 이상').should('exist');\ncy.contains('최소 8자 이상').should('exist');\ncy.wait(300);\ncy.contains('정보가 수정되었습니다').should('not.exist');\ncy.get('.button_container > .btn_common').click();\ncy.contains('정보가 수정되었습니다').should('exist');\ncy.get('.popup_b > .btn_common').click(); //paymenthistory\ncy.get('.settings_side_content > [href=\"/paymenthistory\"]').click();\ncy.wait(1000);\ncy.url().should('include', '/paymenthistory');\ncy.url().then(valse => {\n  cy.log('The current real URL id: ', valse);\n});\ncy.contains('내 정보 수정').should('exist');\ncy.contains('신청 내역').should('exist');\ncy.contains('운영 가이드').should('exist');\ncy.contains('수강생 가이드').should('exist');\ncy.contains('라클아카데미').should('exist'); // user stting cilck\ncy.get('.ki-user').click(); // logout\ncy.get(':nth-child(4) > .lhp-menu-item').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: '정보가 수정되었습니다' but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: '정보가 수정되었습니다' but never did.\n    at Context.eval (https://sso.liveklass.com/__cypress/tests?p=cypress/e2e/3_mypage_editinformation.cy.js:145:32)",
+                "diff": null
+              },
+              "uuid": "87208f8e-c06b-48ce-bf3b-aefee7825e2c",
+              "parentUUID": "ac02350d-ea42-40b3-9035-c5c5eaedab16",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "3-2. editinformation email check",
+              "fullTitle": "empty spec 3-2. editinformation email check",
+              "timedOut": null,
+              "duration": 5939,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://sso.liveklass.com/editinformation');\ncy.wait(200);\ncy.get('.content_td > div > .btn_common').click();\ncy.get('.mng-input-button').should('exist');\ncy.contains('계정 인증 완료').should('exist');\ncy.get('.mng-input-button').click();\ncy.get(':nth-child(3) > .lk-mng-input > input').type('324789');\ncy.contains('인증 코드가 잘못 되었습니다.').should('not.exist');\ncy.get('.lk-mng-modal-footer > .lk-mng-button').click();\ncy.contains('인증 코드가 잘못 되었습니다.').should('exist');\ncy.wait(200);\ncy.get('[class=\"btn_common btn_point btn_popup_small focusable\"]').click();\ncy.wait(200);\ncy.get('.lk-mng-modal-header > .lk-mng-icon > img').click();",
+              "err": {},
+              "uuid": "8dfc8181-fd76-40f8-b67b-abd3a0446042",
+              "parentUUID": "ac02350d-ea42-40b3-9035-c5c5eaedab16",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "8dfc8181-fd76-40f8-b67b-abd3a0446042"
+          ],
+          "failures": [
+            "3d796a68-8633-4466-9752-d7d3126ac0f7",
+            "87208f8e-c06b-48ce-bf3b-aefee7825e2c"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 29333,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/json",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
